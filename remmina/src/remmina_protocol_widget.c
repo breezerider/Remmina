@@ -450,7 +450,13 @@ gboolean remmina_protocol_widget_plugin_screenshot(RemminaProtocolWidget* gp, Re
 	}
 
 	return gp->priv->plugin->get_plugin_screenshot(gp, rpsd);
+}
 
+void remmina_protocol_widget_start_pastefiles(RemminaProtocolWidget* gp, const gchar* destdir)
+{
+	if (gp->priv->plugin->start_pastefiles) {
+		gp->priv->plugin->start_pastefiles(gp, destdir);
+	}
 }
 
 
